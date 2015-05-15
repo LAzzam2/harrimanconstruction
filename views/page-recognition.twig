@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+{% block content %}
+    <div id="recognition" class="small-12">
+    	{% for item in post.get_field('hero_image') %}
+		<div style="background: url('{{item.image}}') no-repeat center center; background-size: cover;">
+      		<div>
+	      		<h5>{{ post.title }}</h5>
+	      		<div class="project row centered">
+					<div class="copyblock">
+						<div class="columns small-12">
+							{% for item in post.get_field('recognition') %}
+							<div class="columns small-12 medium-6 end">
+								<div class="recog_details">
+									<p>{{ item.headline }} <span>{{ item.subhead }}</span></p>
+								</div>
+							</div>
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+      		</div>
+      	</div>
+  		{% endfor %}
+    </div>
+
+{% endblock %}
+
+

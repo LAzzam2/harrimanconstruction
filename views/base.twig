@@ -1,0 +1,51 @@
+{% block html_head_container %}
+{% include 'html-header.twig' %}
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+    <body class="{{body_class}} loginClosed" data-template="base.twig" data-uri="{{ uri }}">
+        <div class="topGradient"></div>
+        <div id="topBar" class="columns header">
+          <nav>
+            <div class="small-5 medium-3 large-3 columns" id="logo">
+              <a href="/" class="svg"><img src="{{theme.link}}/img/logo.jpg" alt="logo" /></a>
+            </div>
+            <div class="small-7 medium-9 columns">
+              <ul id="largeNav">
+                {% for item in menu.get_items %}
+                <li><a class="nav-main-link" href="{{item.get_link}}" id="{{item.get_link}}">{{item.title}}</a></li>
+                  {% if item.get_children %}
+                      <ul class="nav-drop">
+                        {% for child in item.get_children %}
+                          <li class="nav-drop-item"><a href="{{child.get_link}}">{{child.title}}</a></li>
+                        {% endfor %}
+                      </ul>
+                   {% endif %}
+                {% endfor %}
+              </ul>
+            <span id="mobile-menu-btn"><small>Menu</small> <other>&#9776;</other></span>
+            </div>
+          </nav>
+        </div>
+
+        <nav id="mobileNav">
+          <ul>
+            {% for item in menu.get_items %}
+            <a class="nav-main-link" href="{{item.get_link}}"><li>{{item.title}}</li></a>
+            {% endfor %}
+          </ul>
+        </nav>
+
+        <div id="skrollr-body">
+          <div class="wrap">       
+              {% block content %}
+              {% endblock %}
+              {% block footer %}
+              {% include 'footer.twig' %}
+              {% endblock %}
+          </div>
+        </div>
+      {{ function('wp_footer') }}
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+{% block content %}
+    <div id="contact" class="small-12">
+    	{% for item in post.get_field('hero_image') %}
+		<div style="background: url('{{item.image}}') no-repeat center center; background-size: cover;">
+      		<div>
+	      		<h5>{{ post.headline }}</h5>
+	      		<p>{{ post.content }}</p>
+      		</div>
+      	</div>
+  		{% endfor %}
+    </div>
+
+{% endblock %}
+
+

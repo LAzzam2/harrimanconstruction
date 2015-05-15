@@ -1,0 +1,39 @@
+$lgreybg: #eff1f2;
+$lgrey: #878787;
+$dgrey: #505050;
+$bggrey: #f7f7f7;
+$lorange: #f0b14e;
+$dorange: grey;
+$ddorange: #cb5845;
+$lblue: #a8b1b7;
+$blue: #5e88a2;
+$dblue: #5e88a2;
+$oblue: #4294cf;
+$navy: #255677;
+
+$bradius: 6px;
+$dotsSize: 30px;
+$dotsSizeSmall: 10px;
+
+@mixin center($x,$y){
+	transform: translate($x,$y);
+	-ms-transform: translate($x,$y);
+	-moz-transform: translate($x,$y);
+	-webkit-transform: translate($x,$y);
+}
+
+@mixin transition($val1, $val2, $val3){
+	transition: $val1 $val2 $val3;
+	-ms-transition: $val1 $val2 $val3;
+	-moz-transition: $val1 $val2 $val3;
+	-webkit-transition: $val1 $val2 $val3;
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+

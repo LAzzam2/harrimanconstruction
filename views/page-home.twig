@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+{% block content %}
+		<div id="home" class="small-12 hero">
+			{% for item in post.get_field('hero_image') %}
+			<div style="background: url('{{item.image}}') no-repeat center center; background-size: cover;">
+			  <div class="hero_content small-12 small-centered columns">
+			  </div>
+			</div>
+			{% endfor %}
+		</div>
+{% endblock %}

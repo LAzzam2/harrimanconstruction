@@ -1,0 +1,41 @@
+{% block footer %}
+
+<div id="footer" class="section">
+  <div class="small-12 columns">
+    <div class="row" id="contactItems">
+        <div class="small-12 medium-6 large-3 columns">
+          <a href="{{ options.gmapsurl }}" target="_blank">
+            <img src="{{theme.link}}/img/pin.png" alt="address">
+            <p>{{options.address}}</p>
+          </a>
+        </div>
+      <div class="small-12 medium-6 large-3 columns">
+        <a href="tel:{{options.phone_number}}">
+          <img src="{{theme.link}}/img/phone.png" alt="phone">
+          <p>{{options.phone_number}}</p>
+        </a>
+      </div>
+      <div class="small-12 medium-6 large-3 columns">
+        <a href="mailto:{{options.email}}">
+          <img src="{{theme.link}}/img/mail.png" alt="mail">
+          <p>{{options.email}}</p>
+        </a>
+      </div>
+      <div class="small-12 medium-6 large-3 columns">
+        <a href="tel:{{options.fax}}">
+          <img src="{{theme.link}}/img/fax.png" alt="fax">
+          <p>{{options.fax}}</p>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-10 medium-8 large-6 small-centered columns">
+        <ul class="footerlinks">
+          <li>{{options.footer_copy}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="clear"></div>
+</div>
+{% endblock %}

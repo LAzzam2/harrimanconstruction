@@ -1,0 +1,117 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div id="home" class="small-12 hero">
+		{% for item in post.get_field('hero_image') %}
+		<div style="background: url('{{item.image}}') no-repeat center center; background-size: cover;">
+		  <div class="hero_content small-12 small-centered columns">
+		  </div>
+		</div>
+		{% endfor %}
+	</div>
+
+	<div class="project row">
+		<div class="copyblock">
+			<div class="columns small-12">
+				<div class="columns small-12 medium-5">
+					<div class="details">
+						<h3>{{post.title}}</h3>
+					</div>
+				</div>
+				<div class="columns small-12 medium-7">
+					{% for item in post.get_field('main_body') %}
+					{{item.body}}
+    				{% endfor %}
+				</div>
+			</div>
+			<div class="clear"></div>
+
+			{% if post.get_field('video_embed') %}
+			<div class="columns small-12">
+				<div class="columns small-12">
+					<div class="video">
+						{{ post.get_field('video_embed') }}
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			{% endif %}
+		</div>
+	</div>
+
+	{% if post.get_field('image_full') %}
+	<div class="fullImg">
+		<div style="background-image: url('{{ post.get_field('image_full') }}'); background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -ms-background-size: cover;"></div>
+	</div>
+	{% endif %}
+
+	{% if post.image_grid_left %}
+	<div class="gridImg">
+		<div style="background: url('{{ post.get_field('image_grid_left') }}') no-repeat center center; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -ms-background-size: cover;">
+		</div>
+		<div style="background: url('{{ post.get_field('image_grid_right') }}') no-repeat center center; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -ms-background-size: cover;">
+		</div>
+	</div>
+	{% endif %}
+	<div class="project row centered">
+		{% if post.get_field('sub_items') %}
+		<div class="copyblock">
+			<div class="columns small-10 small-centered">
+				{% for item in post.get_field('sub_items') %}
+				<div class="columns small-12 medium-6 large-3">
+					<div class="details">
+						<h4>{{ item.subhead }}</h4>
+						<p>{{ item.sub_body }}</p>
+					</div>
+				</div>
+			{% endfor %}
+				
+			</div>
+			<div class="clear"></div>
+			<div class="callout columns small-12 medium-8 small-centered">
+				<p>{{ post.get_field('sub_headline') }}</p>
+			</div>
+		</div>
+		{% endif %} 
+
+		{% if post.get_field('gallery') %}
+		<div id="gallery">
+			<ul>
+				{% for item in post.get_field('gallery') %}
+
+					<a class="fancybox" rel="group" href="{{ item.image }}"><li style="background: url('{{ item.image }}') no-repeat center center; 
+					 background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -ms-background-size: cover;"></li></a>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+	</div>
+	<div class="halfImg" style="background: url('{{ post.get_field('image_half') }}'); background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -ms-background-size: cover;">
+
+			<div class="pagination">
+			{% if post.prev %}
+				<a href="{{post.prev.link}}">	
+					<div class="next">
+						<span>Next ></span>
+						<h3>{{post.prev.title}}</h3>
+						<p>{{post.prev.content|excerpt(15) }}</p>
+						<p>{{post.prev.post_date|date}}</p>
+					</div>
+				</a>
+			{% endif %}
+
+			{% if post.next %}
+			<a href="{{post.next.link}}">
+				<div class="prev">
+					<span>< Previous</span>
+					<h3>{{post.next.title}}</h3>
+					<p>{{post.next.content|excerpt(15) }}</p>
+					<p>{{post.next.post_date|date}}</p>
+				</div>
+			</a>
+			{% endif %}
+			</div>
+			<div class="clear"></div>
+	</div>
+{% endblock %}

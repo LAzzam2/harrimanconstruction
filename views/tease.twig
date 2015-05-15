@@ -1,0 +1,14 @@
+<div class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}" style="background-image: url('{{post.thumbnail}}'); background-size: cover;">
+	<div class="columns">
+		<div>
+			{% if post.location %}
+			<h3>{{post.location}}</h3>
+			{% endif %}
+			<div class="clear"></div>
+			<a href="{{post.link}}"><h2 class="h2">{{post.title}}</h2></a>
+			<h4>{{post.content}}</h4>
+			<a href="{{post.link}}"><div class="cta">View more from this project</div></a>
+		</div>
+	</div>
+	<div class="gradientUp"></div>
+</div>
