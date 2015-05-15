@@ -33,7 +33,6 @@ h3 {
 	top: 0; left: 0;
 	height: 100%;
 	width: 100%;
-	opacity: 0;
 	@include transition(opacity, 500ms, ease-out);
 }
 body {
@@ -121,24 +120,33 @@ a.svg:after {
 		}
 	}
 	#home {
-		height: 50%;
-	}
-	#gallery {
-		padding: 100px 0px;
-		ul {
-			margin: 0px; padding: 0px;
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			a{
-				display: inline-block;
-				margin: 0px; padding: 0px;
-				width: 25%;
-				li {
-					list-style: none;
-				}
+		height: 100%;
+		article {
+			position: absolute;
+			bottom: 0px; left: 0;
+			width: 100%; background-color: white;
+			text-align: center;
+			z-index: 30;
+			padding: 40px 0px 60px 0px;
+			h3 {
+				color: $blue;
+			}
+			p {
+				max-width: 600px;
+				margin: auto;
 			}
 		}
+	}
+	#gallery {
+		padding-top: 50px;
+			a{
+				img {
+					padding: 10px 0px;
+					width: 100%;
+					margin: auto;
+					display: block;
+				}
+			}
 	}
 	.video {
 		margin-top: 35px;
@@ -218,27 +226,29 @@ a.svg:after {
 	}
 }
 .halfImg {
-	height: 50%;
 	width: 100%;
 		position: relative;
 	    background-repeat: no-repeat;
 	    background-attachment: fixed;
 	    background-position: center; 
+	    margin-bottom: 10px;
+	    padding: 40px 0px;
 		>div {
-			position: absolute;
-			top: 50%; 
-			left: 50%;
-			@include transform(translate(-50%,-50%));
-			width: 60%;
+			margin: auto;
+			width: 100%;
+			max-width: 960px;
 			div {
 				width: 50%;
 				margin: 0px;
 				height: 100%;
 				float: left;
-				padding: 25px;
+				padding: 15px;
 				@include transition(background-color, 250ms, ease-out);
 				h3 {
-					color: $blue;
+					color: white;
+				@include transition(color, 250ms, ease-out);
+				font-size: 26px;
+				margin: 0px;
 				}
 				p {
 					color: black;
@@ -248,18 +258,25 @@ a.svg:after {
 						font-size: 11px;
 					}
 			}
-			div.next {
-				float: right;
+			div.prev {
+				margin-right: 1%;
 			}
 			div:first-of-type {
 				width: 49%;
-				margin-right: 1%;
+			}
+			div.next {
+				float: right;
+				text-align: right;
+				width: 50%;
 			}
 			div:first-of-type, div:last-of-type {
-				background-color: white;
+				background-color: $blue;
 			}
 			div:hover {
 				background-color: #e4e5e6;
+				h3 {
+					color: $blue;
+				}
 			}
 		}
 }
@@ -505,6 +522,7 @@ li.gborder {
 		margin: 0px auto;
 		padding: 0px;
 		@include center(-50%,0);
+		z-index: 30;
 		li {
 			button:before{
 				color: white;
@@ -843,7 +861,7 @@ img.plus {
 		>div {
 			position: inherit;
 			@include transform(translate(0%,0%));
-			width: 100%; max-width: 750px;
+			width: 100%; max-width: 550px;
 			padding: 25px 0px 50px 0px;
 			background-color: white;
 			text-align: center;
@@ -1619,45 +1637,13 @@ img.plus {
 		}
 	}
 	.halfImg {
-		height:auto;
-		width: 100%;
-		position: relative;
-		background-position: center;
-			>div {
-				position: inherit;
-				@include transform(translate(0px,0px));
-				width: 100%;
-				top: auto; left: auto;
-				div {
-					width: 100%;
-					margin: 0px;
-					height: auto;
-					padding: 25px;
-				}
-				div:first-of-type {
-					width: 100%;
-				}
-				div:first-of-type, div:last-of-type {
-					background-color: white;
-				}
-				div:hover {
-					background-color: #e4e5e6;
-				}
-			
-			}
+	    padding: 20px 0px;
 	}
 	.single {
-		#gallery {
-			padding: 0px;
-			ul {
-				a{
-					width: 50%;
-					display: block; float: left;
-				}
+		.next, .prev {
+			h3{
+			font-size: 20px;
 			}
-		}
-		.next {
-			float: right;
 		}
 	}
 
