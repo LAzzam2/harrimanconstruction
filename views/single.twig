@@ -11,9 +11,7 @@
 		{% endfor %}
 		<article>
 			<h3>{{post.title}}</h3>
-			{% for item in post.get_field('main_body') %}
-				<p>{{item.body}}</p>
-			{% endfor %}
+				<p>{{post.content}}</p>
 		</article>
 	</div>
 
